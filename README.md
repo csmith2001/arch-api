@@ -1,3 +1,14 @@
+## License
+
+This repository is source-available for evaluation and educational
+purposes only.
+
+No permission is granted to use, modify, distribute, host, or create
+derivative works from this software without written permission from the
+copyright holder.
+
+See LICENSE for details.
+
 # ComfyUI Service
 
 `/etc/systemd/system/comfyui.service`
