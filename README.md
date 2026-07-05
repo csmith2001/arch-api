@@ -1,15 +1,27 @@
-## License
+# arch-api
 
-This repository is source-available for evaluation and educational
-purposes only.
+FastAPI wrapper for ComfyUI image generation.
 
-No permission is granted to use, modify, distribute, host, or create
-derivative works from this software without written permission from the
-copyright holder.
+Features:
 
-See LICENSE for details.
+- FastAPI REST API
+- ComfyUI integration
+- Docker deployment
+- Environment-based configuration
+- Static image serving
+- Linux service account support
 
-# ComfyUI Service
+## Architecture
+
+Browser
+↓
+FastAPI
+↓
+ComfyUI
+↓
+AI-Models
+
+## ComfyUI Service
 
 `/etc/systemd/system/comfyui.service`
 
@@ -119,3 +131,24 @@ journalctl -u comfyui -f
 ├── output
 └── workflows
 ```
+
+## License
+
+This repository is source-available for evaluation and educational
+purposes only.
+
+No permission is granted to use, modify, distribute, host, or create
+derivative works from this software without written permission from the
+copyright holder.
+
+See LICENSE for details.
+
+## Third Party Software
+
+This project integrates with:
+
+- ComfyUI
+- FastAPI
+- Docker
+
+All third-party software remains subject to its own licensing terms.
