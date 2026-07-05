@@ -1,0 +1,19 @@
+services:
+
+  api:
+    build: .
+    container_name: arch-api
+
+    ports:
+      - "${API_PORT}:8000"
+
+    env_file:
+      - .env
+
+    volumes:
+      - /ai-data:/ai-data
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    
+    restart: unless-stopped

@@ -1,13 +1,24 @@
 import json
 import requests
+import json
+import os
 from copy import deepcopy
+from pathlib import Path
 
-COMFY_URL = "http://127.0.0.1:8188"
+
+COMFY_URL = os.getenv("COMFY_URL")
+WORKFLOW_PATH = str(os.getenv("WORKFLOW_PATH"))
+OUTPUT_PATH = os.getenv("OUTPUT_PATH")
+
+assert COMFY_URL, "COMFY_URL missing"
+assert WORKFLOW_PATH, "WORKFLOW_PATH missing"
+assert OUTPUT_PATH, "OUTPUT_PATH missing"
+
+WORKFLOW_PATH = Path(WORKFLOW_PATH)
 
 def load_workflow():
-    with open("workflows/sdxl.json", "r") as f:
+    with open(WORKFLOW_PATH, "r") as f:
         return json.load(f)
-
 
 def generate_image(prompt: str):
 
@@ -15,6 +26,8 @@ def generate_image(prompt: str):
 
     # Positive prompt node
     workflow["74"]["inputs"]["text"] = prompt
+
+    print(workflow)
 
     response = requests.post(
         f"{COMFY_URL}/prompt",
